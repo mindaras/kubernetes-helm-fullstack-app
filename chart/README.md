@@ -1,7 +1,5 @@
 # Helm chart for a fullstack application
 
-![architecture](architecture.png)
-
 ## Install a Helm chart (release)
 
 ```
