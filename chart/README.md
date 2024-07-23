@@ -1,3 +1,7 @@
+# Helm chart for a fullstack application
+
+![architecture](architecture.png)
+
 ## Install a Helm chart (release)
 
 ```
@@ -40,7 +44,7 @@ helm template chart --debug
 ```
 
 _Ingress NGINX controller releases_
-
+cd 
 ```
 https://github.com/kubernetes/ingress-nginx/releases
 ```
