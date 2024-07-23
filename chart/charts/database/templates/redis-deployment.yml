@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "database.fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "database.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "database.fullname" . }}
+    spec:
+      volumes:
+        - name: {{ include "database.fullname" . }}-volume
+          persistentVolumeClaim:
+            claimName: {{ include "database.fullname" . }}-pvc
+      containers:
+        - image: redis:latest
+          name: {{ include "database.fullname" . }}
+          env:
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "backend.fullname" . }}-secret
+                  key: password
+          args: ["--requirepass", "$(PASSWORD)"]
+          ports:
+              - containerPort: 6379
+          volumeMounts:
+            - name: {{ include "database.fullname" . }}-volume
+              mountPath: /data
+     
