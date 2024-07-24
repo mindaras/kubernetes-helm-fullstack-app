@@ -33,3 +33,21 @@ spec:
               value: "{{ .Values.database.port }}"
           ports:
             - containerPort: {{ .Values.port }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.healthEndpoint }}
+              port: {{ .Values.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.healthEndpoint }}
+              port: {{ .Values.port }}
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3

@@ -1,9 +1,23 @@
 # Helm chart for a fullstack application
 
-## Install a Helm chart (release)
+## Manage cluster
+
+_Install a Helm chart (release)_
 
 ```
 helm install <relase name> <chart directory>:
+```
+
+_Check release history_
+
+```
+helm history <release name>
+```
+
+_Rollback a release_
+
+```
+helm rollback <release name> <revision>
 ```
 
 ## Debugging
@@ -32,17 +46,31 @@ kubectl describe <resource name>
 _Test the manifest output by static generation (without hitting kuberenetes API server)_
 
 ```
-helm template chart --debug
+helm template <chart dir> --debug
 ```
 
 _Test the manifest output with hitting kuberenetes API server_
 
 ```
-helm template chart --debug
+helm install <release name> <chart dir> --dry-run --debug
 ```
 
+_Watch container's logs_
+
+```
+kubectl logs -f <pod name>
+```
+
+_Watch resource status updates_
+
+```
+kubectl get <resource name> --watch
+```
+
+## Resource management
+
 _Ingress NGINX controller releases_
-cd 
+
 ```
 https://github.com/kubernetes/ingress-nginx/releases
 ```
@@ -70,5 +98,3 @@ _Inspect ingress_
 ```
 kubectl describe ing
 ```
-
-
