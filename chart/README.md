@@ -1,11 +1,55 @@
 # Helm chart for a fullstack application
 
+## Kubeconfig
+
+_Get available contexts_
+
+```
+kubectl config get-contexts
+```
+
+_Switch the current context_
+
+```
+kubectl config use-context <context-name>
+```
+
+_Add a new EKS cluster_
+
+```
+aws eks update-kubeconfig --name <your-cluster-name> --region <your-region>
+```
+
+_Remove a context_
+
+```
+kubectl config delete-context <context-name>
+```
+
+_Get clusters_
+
+```
+kubectl config get-clusters
+```
+
+_Remove a cluster_
+
+```
+kubectl config delete-cluster <cluster-name>
+```
+
 ## Manage cluster
 
 _Install a Helm chart (release)_
 
 ```
-helm install <relase name> <chart directory>:
+helm install <relase name> <chart directory>
+```
+
+_Uninstall a Helm chart (take down a release)_
+
+```
+helm install <relase name> <chart directory>
 ```
 
 _Check release history_
@@ -65,6 +109,12 @@ _Watch resource status updates_
 
 ```
 kubectl get <resource name> --watch
+```
+
+_Check the resource quotas for the namespace used_
+
+```
+kubectl get resourcequota -n <namespace>
 ```
 
 ## Resource management

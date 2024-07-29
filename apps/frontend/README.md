@@ -3,5 +3,5 @@
 ## Build
 
 ```
-docker build --build-arg="VITE_API_URL=http://dev.api.counter.com/api" -t dev-counter-frontend:1.0.0 .
+docker build --platform linux/amd64 --build-arg="VITE_API_URL=http://dev.api.counter.com/api" -t mindaras/dev-counter-frontend .
 ```

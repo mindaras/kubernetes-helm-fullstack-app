@@ -13,18 +13,18 @@ spec:
         app: {{ include "frontend.fullname" . }}
     spec:
       containers:
-        - image: {{ .Release.Name }}-counter-frontend:1.0.0
-          imagePullPolicy: IfNotPresent
+        - image: mindaras/{{ .Release.Name }}-counter-frontend:latest
+          imagePullPolicy: Always
           name: {{ include "frontend.fullname" . }}
           ports:
             - containerPort: {{ .Values.port }}
           resources:
             requests:
-              memory: "256Mi"
-              cpu: "250m"
+              memory: "100Mi"
+              cpu: "100m"
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "128Mi"
+              cpu: "200m"
           readinessProbe:
             httpGet:
               path: /

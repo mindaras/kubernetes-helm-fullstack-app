@@ -3,7 +3,7 @@
 ## Build
 
 ```
-docker build -t dev-counter-backend:1.0.0 .
+docker build --platform linux/amd64 -t mindaras/dev-counter-backend .
 ```
 
 ## Run
