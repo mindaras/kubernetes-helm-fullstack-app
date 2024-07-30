@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: {{ .Release.Name }}.counter.com
+    - host: {{ .Release.Name }}.mindaugasl.com
       http:
         paths:
           - path: /
@@ -15,7 +15,7 @@ spec:
                 name: {{ .Release.Name }}-frontend
                 port:
                   number: {{ .Values.frontend.port }}
-    - host: {{ .Release.Name }}.api.counter.com
+    - host: {{ .Release.Name }}.api.mindaugasl.com
       http:
         paths:
           - path: /
