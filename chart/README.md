@@ -49,7 +49,7 @@ helm install <relase name> <chart directory>
 _Uninstall a Helm chart (take down a release)_
 
 ```
-helm install <relase name> <chart directory>
+helm uninstall <relase name>
 ```
 
 _Check release history_
