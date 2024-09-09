@@ -14,6 +14,12 @@ _Switch the current context_
 kubectl config use-context <context-name>
 ```
 
+_List EKS clusters_
+
+```
+aws eks list-clusters
+```
+
 _Add a new EKS cluster_
 
 ```
